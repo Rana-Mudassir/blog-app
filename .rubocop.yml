@@ -2,11 +2,15 @@ AllCops:
   NewCops: enable
   Exclude:
     - "db/**/*"
-    - "bin/*" 
+    - "bin/*"
     - "config/**/*"
     - "Guardfile"
     - "Rakefile"
     - "node_modules/**/*"
+    - "Gemfile"
+    - "mailers/**/*"
+    - "config.ru"
+    - "test/**/*"
 
   DisplayCopNames: true
 
