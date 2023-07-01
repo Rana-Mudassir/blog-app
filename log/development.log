@@ -581,3 +581,62 @@ FOREIGN KEY ("post_id")
   [1m[36mTRANSACTION (5.0ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(1508658759281986305)[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (2.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "photo", "bio", "posts_counter", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Tom"], ["photo", "https://unsplash.com/photos/F_-0BxGuVvo"], ["bio", "Teacher from Mexico."], ["posts_counter", 0], ["created_at", "2023-06-30 22:30:57.577675"], ["updated_at", "2023-06-30 22:30:57.577675"]]
+  [1m[36mTRANSACTION (7.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (8.6ms)[0m  [1m[32mINSERT INTO "posts" ("title", "text", "comments_counter", "likes_counter", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Hello"], ["text", "This is my first post"], ["comments_counter", 0], ["likes_counter", 0], ["author_id", 1], ["created_at", "2023-06-30 22:32:21.967383"], ["updated_at", "2023-06-30 22:32:21.967383"]]
+  [1m[36mUser Update All (1.8ms)[0m  [1m[33mUPDATE "users" SET "posts_counter" = COALESCE("posts_counter", 0) + $1 WHERE "users"."id" = $2[0m  [["posts_counter", 1], ["id", 1]]
+  [1m[36mTRANSACTION (7.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (1.0ms)[0m  [1m[32mINSERT INTO "posts" ("title", "text", "comments_counter", "likes_counter", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Greetings"], ["text", "I wanted to say hello to everyone!"], ["comments_counter", 0], ["likes_counter", 0], ["author_id", 1], ["created_at", "2023-06-30 22:32:36.036561"], ["updated_at", "2023-06-30 22:32:36.036561"]]
+  [1m[36mUser Update All (0.9ms)[0m  [1m[33mUPDATE "users" SET "posts_counter" = COALESCE("posts_counter", 0) + $1 WHERE "users"."id" = $2[0m  [["posts_counter", 1], ["id", 1]]
+  [1m[36mTRANSACTION (13.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (9.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (1.0ms)[0m  [1m[32mINSERT INTO "posts" ("title", "text", "comments_counter", "likes_counter", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Travel Adventures"], ["text", "Sharing my travel experiences around the world."], ["comments_counter", 0], ["likes_counter", 0], ["author_id", 1], ["created_at", "2023-06-30 22:33:20.542534"], ["updated_at", "2023-06-30 22:33:20.542534"]]
+  [1m[36mUser Update All (0.9ms)[0m  [1m[33mUPDATE "users" SET "posts_counter" = COALESCE("posts_counter", 0) + $1 WHERE "users"."id" = $2[0m  [["posts_counter", 1], ["id", 1]]
+  [1m[36mTRANSACTION (5.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (7.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (1.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "text", "comments_counter", "likes_counter", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Favorite Recipes"], ["text", "Here are some of my favorite recipes to try out."], ["comments_counter", 0], ["likes_counter", 0], ["author_id", 1], ["created_at", "2023-06-30 22:33:40.162607"], ["updated_at", "2023-06-30 22:33:40.162607"]]
+  [1m[36mUser Update All (1.0ms)[0m  [1m[33mUPDATE "users" SET "posts_counter" = COALESCE("posts_counter", 0) + $1 WHERE "users"."id" = $2[0m  [["posts_counter", 1], ["id", 1]]
+  [1m[36mTRANSACTION (12.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "photo", "bio", "posts_counter", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Lilly"], ["photo", "https://unsplash.com/photos/F_-0BxGuVvo"], ["bio", "Teacher from Poland."], ["posts_counter", 0], ["created_at", "2023-06-30 22:34:15.723707"], ["updated_at", "2023-06-30 22:34:15.723707"]]
+  [1m[36mTRANSACTION (5.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mComment Create (5.6ms)[0m  [1m[32mINSERT INTO "comments" ("text", "user_id", "post_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["text", "Hi Tom!"], ["user_id", 2], ["post_id", 1], ["created_at", "2023-06-30 22:58:19.886088"], ["updated_at", "2023-06-30 22:58:19.886088"]]
+  [1m[36mComment Count (2.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  [1m[36mPost Update (1.0ms)[0m  [1m[33mUPDATE "posts" SET "comments_counter" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["comments_counter", 1], ["updated_at", "2023-06-30 22:58:20.423596"], ["id", 1]]
+  [1m[36mUser Update All (0.7ms)[0m  [1m[33mUPDATE "users" SET "posts_counter" = COALESCE("posts_counter", 0) + $1 WHERE "users"."id" = $2[0m  [["posts_counter", 1], ["id", 1]]
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mComment Create (1.2ms)[0m  [1m[32mINSERT INTO "comments" ("text", "user_id", "post_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["text", "Hello Sam"], ["user_id", 1], ["post_id", 1], ["created_at", "2023-06-30 23:01:18.380348"], ["updated_at", "2023-06-30 23:01:18.380348"]]
+  [1m[36mComment Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  [1m[36mPost Update (0.6ms)[0m  [1m[33mUPDATE "posts" SET "comments_counter" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["comments_counter", 2], ["updated_at", "2023-06-30 23:01:18.394629"], ["id", 1]]
+  [1m[36mUser Update All (1.4ms)[0m  [1m[33mUPDATE "users" SET "posts_counter" = COALESCE("posts_counter", 0) + $1 WHERE "users"."id" = $2[0m  [["posts_counter", 1], ["id", 1]]
+  [1m[36mTRANSACTION (6.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mComment Create (1.2ms)[0m  [1m[32mINSERT INTO "comments" ("text", "user_id", "post_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["text", "Hew are you"], ["user_id", 1], ["post_id", 1], ["created_at", "2023-06-30 23:03:52.909613"], ["updated_at", "2023-06-30 23:03:52.909613"]]
+  [1m[36mComment Count (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  [1m[36mPost Update (0.6ms)[0m  [1m[33mUPDATE "posts" SET "comments_counter" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["comments_counter", 3], ["updated_at", "2023-06-30 23:03:52.924362"], ["id", 1]]
+  [1m[36mUser Update All (1.4ms)[0m  [1m[33mUPDATE "users" SET "posts_counter" = COALESCE("posts_counter", 0) + $1 WHERE "users"."id" = $2[0m  [["posts_counter", 1], ["id", 1]]
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mComment Create (11.8ms)[0m  [1m[32mINSERT INTO "comments" ("text", "user_id", "post_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["text", "Comment 2"], ["user_id", 2], ["post_id", 1], ["created_at", "2023-06-30 23:03:59.196762"], ["updated_at", "2023-06-30 23:03:59.196762"]]
+  [1m[36mComment Count (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  [1m[36mPost Update (1.3ms)[0m  [1m[33mUPDATE "posts" SET "comments_counter" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["comments_counter", 4], ["updated_at", "2023-06-30 23:03:59.225964"], ["id", 1]]
+  [1m[36mUser Update All (1.1ms)[0m  [1m[33mUPDATE "users" SET "posts_counter" = COALESCE("posts_counter", 0) + $1 WHERE "users"."id" = $2[0m  [["posts_counter", 1], ["id", 1]]
+  [1m[36mTRANSACTION (6.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mComment Create (1.6ms)[0m  [1m[32mINSERT INTO "comments" ("text", "user_id", "post_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["text", "Working on ROR"], ["user_id", 1], ["post_id", 1], ["created_at", "2023-06-30 23:04:20.387118"], ["updated_at", "2023-06-30 23:04:20.387118"]]
+  [1m[36mComment Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  [1m[36mPost Update (0.6ms)[0m  [1m[33mUPDATE "posts" SET "comments_counter" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["comments_counter", 5], ["updated_at", "2023-06-30 23:04:20.402076"], ["id", 1]]
+  [1m[36mUser Update All (0.9ms)[0m  [1m[33mUPDATE "users" SET "posts_counter" = COALESCE("posts_counter", 0) + $1 WHERE "users"."id" = $2[0m  [["posts_counter", 1], ["id", 1]]
+  [1m[36mTRANSACTION (10.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mComment Create (6.2ms)[0m  [1m[32mINSERT INTO "comments" ("text", "user_id", "post_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["text", "Same her bor"], ["user_id", 2], ["post_id", 1], ["created_at", "2023-06-30 23:04:49.198995"], ["updated_at", "2023-06-30 23:04:49.198995"]]
+  [1m[36mComment Count (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  [1m[36mPost Update (0.6ms)[0m  [1m[33mUPDATE "posts" SET "comments_counter" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["comments_counter", 6], ["updated_at", "2023-06-30 23:04:49.222371"], ["id", 1]]
+  [1m[36mUser Update All (0.8ms)[0m  [1m[33mUPDATE "users" SET "posts_counter" = COALESCE("posts_counter", 0) + $1 WHERE "users"."id" = $2[0m  [["posts_counter", 1], ["id", 1]]
+  [1m[36mTRANSACTION (6.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
