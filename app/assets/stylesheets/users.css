@@ -112,6 +112,10 @@ li {
   margin-block: 10px;
 }
 
+#width-link {
+  width: 97%;
+}
+
 .user-button {
   margin: 30px auto;
   background: #3f414b;
