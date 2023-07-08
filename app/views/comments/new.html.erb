@@ -1,0 +1,7 @@
+   <div class="comment">
+    <%= form_with(model: Comment.new, url: user_post_comments_path(@post.author, @post)) do |form| %>
+      <%= form.text_area :text, placeholder: 'Enter your comment', rows: 4 %>
+      <%= form.submit 'Add Comment' %>
+    <% end %>
+  </div>
+  
