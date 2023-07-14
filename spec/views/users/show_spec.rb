@@ -1,8 +1,6 @@
 require 'rails_helper'
 require 'capybara/rspec'
 
-url = 'http://127.0.0.1:3000/'
-
 RSpec.describe 'show', type: :feature, js: false do
   let!(:user) do
     User.create!(
