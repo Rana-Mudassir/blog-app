@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
+  before do
+    @user = User.create(name: 'Tom', id: 5)
+  end
   describe 'GET #index' do
     it 'returns a successful response' do
       get users_path
@@ -14,27 +17,24 @@ RSpec.describe 'Users', type: :request do
 
     it 'includes correct placeholder text in the response body' do
       get users_path
-      expect(response.body).to include('<h1>Here is a list of users</h1>')
+      expect(response.body).to include('<span>Number of posts: 1</span>')
     end
   end
 
   describe 'GET #show' do
     it 'returns http success' do
-      user = User.create(name: 'John', id: 1)
-      get user_path(user, user.id)
+      get user_path(@user.id)
       expect(response).to have_http_status(:success)
     end
 
     it 'renders the correct template' do
-      user = User.create(name: 'John', id: 1)
-      get user_path(user, user.id)
+      get user_path(@user.id)
       expect(response).to render_template(:show)
     end
 
     it 'should include correct placeholder' do
-      user = User.create(name: 'John', id: 1)
-      get user_path(user, user.id)
-      expect(response.body).to include('<h1>Here is a Specific User for a given User Id</h1>')
+      get user_path(@user.id)
+      expect(response.body).to include('<h2>Tom</h2>')
     end
   end
 end

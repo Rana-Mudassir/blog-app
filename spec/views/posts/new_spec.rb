@@ -1,9 +1,10 @@
+require 'rails_helper'
 require 'capybara/rspec'
 
 RSpec.describe 'New Post Form', type: :feature do
   before do
-    @user = User.find_by(name: 'Thomas Heflord')
-    visit "http://127.0.0.1:3000/users/#{@user.id}/posts/new.645"
+    @user = User.create(name: 'Tom') # Create the user 'Tom'
+    visit new_user_post_path(@user)
   end
 
   it 'allows users to create a new post' do

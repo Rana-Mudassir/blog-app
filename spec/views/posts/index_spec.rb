@@ -1,22 +1,23 @@
 require 'capybara/rspec'
+require 'rails_helper'
 
 RSpec.describe 'User profile page', type: :feature do
   before do
-    @user = User.create(name: 'Thomas Heflord',
+    @user = User.create(name: 'Tom',
                         photo: 'https://media.istockphoto.com/id/1289461328/photo/portrait-of-a-handsome-black-man.jpg?s=612x612&w=0&k=20&c=y_mzB0Tbe5LErNy6pqfY7sz2HiDT7fOAUCwupN3-Bg4=',
                         posts_counter: 5)
     @posts = [
-      Post.create(author: @user, title: 'Morality',
-                  text: 'Strive for Personal Growth: Embrace personal growth and strive to become the best',
+      Post.create(author: @user, title: 'Hello',
+                  text: 'This is my first post',
                   comments: []),
-      Post.create(author: @user, title: 'Honesty and Integrity',
-                  text: 'Practice integrity and honesty in your words and actions. Be true to your principles and',
+      Post.create(author: @user, title: 'Greetings',
+                  text: 'I wanted to say hello to everyone!',
                   comments: [])
     ]
   end
 
   it 'displays the user profile information and posts' do
-    visit 'http://127.0.0.1:3000/users/645/posts'
+    visit user_posts_path(@user)
 
     expect(page).to have_selector('h2', text: @user.name)
     expect(page).to have_selector('img[src="https://media.istockphoto.com/id/1289461328/photo/portrait-of-a-handsome-black-man.jpg?s=612x612&w=0&k=20&c=y_mzB0Tbe5LErNy6pqfY7sz2HiDT7fOAUCwupN3-Bg4="]')

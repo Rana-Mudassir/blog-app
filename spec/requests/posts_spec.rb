@@ -14,7 +14,7 @@ RSpec.describe 'Posts', type: :request do
 
     it 'includes correct placeholder text in the response body' do
       get '/users/1/posts'
-      expect(response.body).to include('<h1>Here is a list of posts for a given user</h1>')
+      expect(response.body).to include('<h3>post</h3>')
     end
   end
 
@@ -33,7 +33,7 @@ RSpec.describe 'Posts', type: :request do
 
     it 'includes correct placeholder text in the response body' do
       get '/users/1/posts/1'
-      expect(response.body).to include('<h1>Here is a Specific post for a given User Id</h1>')
+      expect(response.body).to include('<h2>post by Man</h2>')
     end
   end
 end

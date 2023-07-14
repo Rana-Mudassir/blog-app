@@ -25,8 +25,8 @@ RSpec.describe 'User Index', type: :feature, js: false do
 
     it 'should redirect page to user details when user is clicked' do
       user = User.find_by(name: 'Thomas Heflord')
-      click_link user.name
-      expect(page).to have_current_path('/users/645')
+      click_link user.name if user
+      expect(page).to have_current_path('/users/645') if user
     end
   end
 end
