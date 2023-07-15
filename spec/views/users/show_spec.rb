@@ -62,5 +62,21 @@ RSpec.describe 'show', type: :feature, js: false do
     it 'should have a button to see all posts' do
       expect(page).to have_link('See all posts')
     end
+
+    it "redirects me to the post's show page when I click a user's post" do
+      click_link(href: user_post_path(user, post))
+      expect(page).to have_current_path(user_post_path(user, post))
+    end
+
+    it 'redirects to the posts index page when clicking on the see all posts button' do
+      click_link('See all posts')
+      expect(page).to have_current_path(user_posts_path(user))
+    end
+
+    it "displays the user's first 3 posts" do
+      user.recent_posts.limit(3).each do |post|
+        expect(page).to have_content(post.title)
+      end
+    end
   end
 end
