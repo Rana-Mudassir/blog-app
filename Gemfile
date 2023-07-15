@@ -5,6 +5,8 @@ group :development, :test do
   gem 'rspec-rails'
 end
 
+gem 'devise'
+
 ruby "3.2.2"
 
 gem 'rubocop', '>= 1.0', '< 2.0'
