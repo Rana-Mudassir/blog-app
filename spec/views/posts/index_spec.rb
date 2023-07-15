@@ -33,7 +33,7 @@ RSpec.describe 'User profile page', type: :feature do
 
   it 'displays the number of posts the user has written' do
     visit user_posts_path(@user)
-    expect(page).to have_content("Number of posts: 2")
+    expect(page).to have_content('Number of posts: 2')
   end
 
   it 'displays part of the post body' do
