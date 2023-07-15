@@ -13,3 +13,31 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.session-message {
+  width: 90%;
+  margin: 5%;
+}
+
+
+.field {
+  width: 100%;
+  height: 50px;
+}
+
+.button {
+  width: 100%;
+  height: 50px;
+}
+
+.actions {
+    width: 100%;
+    margin-top: 16px;
+}
+
