@@ -1,0 +1,30 @@
+<section>
+  <div class="user">
+    <div>
+      <img src="<%= @user.photo %>" alt="Profile picture" />
+    </div>
+    <div class="user-details">
+      <h2><%= @user.name %></h2>
+      <span>Number of posts: <%= @user.posts.count %></span>
+    </div>
+  </div>
+  <div class="posts-list">
+    <% @posts.each do |post| %>
+      <a href="<%= user_post_path(post.author, post) %>">
+        <h3><%= post.title %></h3>
+        <p><%= truncate(post.text, length: 180) %></p>
+        <div class="user-count">
+          <span>Comments: <%= post.comments.count %></span>
+          <span>Likes: <%= post.likes.count %></span>
+        </div>
+      </a>
+      <ul>
+        <% post.comments.each do |comment| %>
+          <li>
+            <strong><%= comment.user.name %></strong>: <%= comment.text %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+</section>

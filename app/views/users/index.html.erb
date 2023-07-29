@@ -1,0 +1,6 @@
+<div>
+  <%= button_to "Logout", destroy_user_session_path, method: :delete %>
+  <% @users.each do |user| %>
+    <%= render partial: "users/user", locals: { user: user } %>
+  <% end %>
+</div>
